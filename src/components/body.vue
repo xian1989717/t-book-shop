@@ -10,6 +10,8 @@
   </div>
 </template>
 <script>
+  import http from '../common/http'
+  import test3, { test1, test2 } from '../common/test.js'
   export default {
     data () {
       return {
@@ -18,6 +20,10 @@
       }
     },
     mounted () {
+      test3()
+      test1()
+      test2()
+      http.get('about').then(res => { console.log(res) })
       this.bookList = Array.from(Array(96), (v, k) => v = { id: k, name: '地球三部曲', price: 100.00 });
     }
   }
